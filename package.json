@@ -1,0 +1,60 @@
+{
+  "name": "@open-utils/cli-colorize",
+  "version": "1.0.6",
+  "description": "A powerful and customizable library for terminal colors and styling",
+  "main": "dist/colorize.js",
+  "types": "dist/colorize.d.ts",
+  "type": "commonjs",
+  "exports": {
+    "require": "./dist/colorize.js",
+    "import": "./dist/colorize.mjs"
+  },
+  "scripts": {
+    "build": "tsc && node src/esm-wrapper.js",
+    "prepublishOnly": "npm run build",
+    "test": "jest",
+    "start": "node server.js",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "cli",
+    "colors",
+    "terminal",
+    "console",
+    "ansi",
+    "logging",
+    "formatting",
+    "style",
+    "theme",
+    "colorize"
+  ],
+  "author": {
+    "name": "Ahmad Sadieh",
+    "email": "saadyehahmmad@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s3dyeh/open-utils-cli-colorize.git"
+  },
+  "bugs": {
+    "url": "https://github.com/s3dyeh/open-utils-cli-colorize/issues"
+  },
+  "homepage": "https://github.com/s3dyeh/open-utils-cli-colorize#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^18.19.100",
+    "eslint": "^8.57.1",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.3.2",
+    "typescript": "^5.8.3"
+  }
+}
