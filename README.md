@@ -2,8 +2,6 @@
 
 A powerful and customizable library for enhancing command-line interfaces with colorful, styled text output in Node.js applications.
 
-![Terminal Screenshot](https://via.placeholder.com/800x400?text=Terminal+Screenshot)
-
 ## Features
 
 - 🎨 **Theme Support**: Multiple built-in themes with easy customization
