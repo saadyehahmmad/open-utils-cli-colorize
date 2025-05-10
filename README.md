@@ -5,8 +5,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![Node.js Version](https://img.shields.io/node/v/@open-utils/cli-colorize.svg)](https://nodejs.org/)
+[![Documentation](https://img.shields.io/badge/Documentation-Website-brightgreen.svg)](https://saadyehahmmad.github.io/open-utils-cli-colorize/)
 
 > A powerful and customizable library for enhancing command-line interfaces with colorful, styled text output, progress bars, spinners, and formatted tables in Node.js applications.
+
+📚 **[View Full Documentation](https://saadyehahmmad.github.io/open-utils-cli-colorize/)** | 📦 **[NPM Package](https://www.npmjs.com/package/@open-utils/cli-colorize)** | 🔍 **[Examples](https://github.com/saadyehahmmad/open-utils-cli-colorize/tree/main/examples)**
 
 ## 🚀 Features
 
@@ -36,6 +39,7 @@
 - [Advanced Usage](#advanced-usage)
 - [API Reference](#api-reference)
 - [Why Choose @open-utils/cli-colorize](#why-choose-open-utils-cli-colorize)
+- [Documentation Website](https://saadyehahmmad.github.io/open-utils-cli-colorize/)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -293,6 +297,22 @@ Options:
 - **Task Runners**: Show progress and status of running tasks
 - **Interactive CLIs**: Create engaging command-line interfaces with styled prompts and responses
 
+## 📚 Documentation Website
+
+For a more interactive experience exploring the features of @open-utils/cli-colorize, visit our documentation website:
+
+🔗 **[https://saadyehahmmad.github.io/open-utils-cli-colorize/](https://saadyehahmmad.github.io/open-utils-cli-colorize/)**
+
+The documentation site includes:
+- Interactive examples
+- Live demonstrations
+- Installation instructions
+- Frequently asked questions
+- API reference
+- Comparison with alternatives
+
+The site is optimized for mobile and desktop viewing, making it easy to explore the library's capabilities wherever you are.
+
 ## 👥 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -309,8 +329,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📦 Related Projects
 
-- [@open-utils/cli-input](https://github.com/saadyehahmmad/open-utils-cli-input) - Interactive command-line input utilities
-- [@open-utils/cli-menu](https://github.com/saadyehahmmad/open-utils-cli-menu) - Create interactive command-line menus
 
 ---
 
