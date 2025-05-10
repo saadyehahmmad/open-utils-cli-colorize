@@ -1,7 +1,7 @@
 {
   "name": "@open-utils/cli-colorize",
-  "version": "1.0.6",
-  "description": "A powerful and customizable library for terminal colors and styling",
+  "version": "1.0.9",
+  "description": "A powerful and customizable library for terminal colors and styling. Add beautiful ANSI colors, progress bars, spinners, and formatted tables to your Node.js CLI applications.",
   "main": "dist/colorize.js",
   "types": "dist/colorize.d.ts",
   "type": "commonjs",
@@ -13,8 +13,9 @@
     "build": "tsc && node src/esm-wrapper.js",
     "prepublishOnly": "npm run build",
     "test": "jest",
-    "start": "node server.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "docs": "node -e \"require('fs').copyFileSync('README.md', 'docs/README.md')\"",
+    "publish-prep": "node scripts/publish.js"
   },
   "keywords": [
     "cli",
@@ -26,29 +27,56 @@
     "formatting",
     "style",
     "theme",
-    "colorize"
+    "colorize",
+    "nodejs",
+    "stdout",
+    "command-line",
+    "progress-bar",
+    "spinner",
+    "cli-styling",
+    "terminal-ui",
+    "text-formatting",
+    "chalk-alternative",
+    "console-styling",
+    "console-colors",
+    "node-terminal",
+    "ansi-colors",
+    "ansi-styling",
+    "console-output",
+    "cli-tools",
+    "javascript-colors",
+    "typescript-colors"
   ],
   "author": {
     "name": "Ahmad Sadieh",
-    "email": "saadyehahmmad@gmail.com"
+    "email": "saadyehahmmad@gmail.com",
+    "url": "https://github.com/saadyehahmmad"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/s3dyeh/open-utils-cli-colorize.git"
+    "url": "https://github.com/saadyehahmmad/open-utils-cli-colorize.git"
   },
   "bugs": {
-    "url": "https://github.com/s3dyeh/open-utils-cli-colorize/issues"
+    "url": "https://github.com/saadyehahmmad/open-utils-cli-colorize/issues"
   },
-  "homepage": "https://github.com/s3dyeh/open-utils-cli-colorize#readme",
+  "homepage": "https://saadyehahmmad.github.io/open-utils-cli-colorize",
+  "documentation": "https://saadyehahmmad.github.io/open-utils-cli-colorize",
   "engines": {
     "node": ">=12.0.0"
   },
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "examples",
+    "NPM-README.md"
   ],
+  "publishConfig": {
+    "readme": "NPM-README.md",
+    "access": "public",
+    "tag": "latest"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "@types/node": "^18.19.100",
@@ -56,5 +84,25 @@
     "jest": "^29.7.0",
     "ts-jest": "^29.3.2",
     "typescript": "^5.8.3"
-  }
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/saadyehahmmad"
+  },
+  "categories": [
+    "Programming Languages",
+    "Formatters",
+    "Other"
+  ],
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "ia32",
+    "arm",
+    "arm64"
+  ]
 }

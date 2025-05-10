@@ -35,7 +35,7 @@ yarn-error.log*
 
 # Dependency directories that should not be published
 node_modules/
-
+coverage/
 # Developer environment
 .idea/
 .vscode/

@@ -1,10 +1,14 @@
 # @open-utils/cli-colorize
 
-A powerful and customizable library for enhancing command-line interfaces with colorful, styled text output in Node.js applications.
+[![npm version](https://img.shields.io/npm/v/@open-utils/cli-colorize.svg)](https://www.npmjs.com/package/@open-utils/cli-colorize)
+[![npm downloads](https://img.shields.io/npm/dm/@open-utils/cli-colorize.svg)](https://www.npmjs.com/package/@open-utils/cli-colorize)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![Node.js Version](https://img.shields.io/node/v/@open-utils/cli-colorize.svg)](https://nodejs.org/)
 
-![Terminal Screenshot](https://via.placeholder.com/800x400?text=Terminal+Screenshot)
+> A powerful and customizable library for enhancing command-line interfaces with colorful, styled text output, progress bars, spinners, and formatted tables in Node.js applications.
 
-## Features
+## 🚀 Features
 
 - 🎨 **Theme Support**: Multiple built-in themes with easy customization
 - 🔄 **Method Chaining**: Fluent API for concise and readable code
@@ -18,8 +22,24 @@ A powerful and customizable library for enhancing command-line interfaces with c
 - 🔀 **Workflows**: Structured logging for complex operations
 - 📦 **ESM & CommonJS**: Supports both module systems
 - 🧪 **Type Safety**: Full TypeScript definitions included
+- 🚫 **Zero Dependencies**: No external packages required
 
-## Installation
+## 📋 Table of Contents
+
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Themes](#themes)
+- [Custom Themes](#custom-themes)
+- [Progress Bars](#progress-bars)
+- [Spinners](#spinners)
+- [Workflow Logging](#workflow-logging)
+- [Advanced Usage](#advanced-usage)
+- [API Reference](#api-reference)
+- [Why Choose @open-utils/cli-colorize](#why-choose-open-utils-cli-colorize)
+- [Contributing](#contributing)
+- [License](#license)
+
+## 📥 Installation
 
 ```bash
 # Install with npm
@@ -32,7 +52,7 @@ yarn add @open-utils/cli-colorize
 pnpm add @open-utils/cli-colorize
 ```
 
-## Quick Start
+## 🚀 Quick Start
 
 ```javascript
 // CommonJS
@@ -59,7 +79,7 @@ logger
   .info('All steps finished');
 ```
 
-## Themes
+## 🎨 Themes
 
 The library comes with several built-in themes:
 
@@ -77,7 +97,7 @@ logger.setTheme('vibrant');
 const darkLogger = new ColorizeLogger({ theme: 'dark' });
 ```
 
-## Custom Themes
+## 🔧 Custom Themes
 
 You can create your own custom themes:
 
@@ -108,9 +128,7 @@ const customLogger = new ColorizeLogger({
 });
 ```
 
-## New Features
-
-### Progress Bars
+## 🔄 Progress Bars
 
 ```javascript
 // Create a progress bar for 100 steps
@@ -132,7 +150,7 @@ for (let i = 0; i <= 100; i += 10) {
 progressBar.complete('All steps completed!');
 ```
 
-### Spinners
+## ⏱️ Spinners
 
 ```javascript
 // Create a spinner with custom options
@@ -158,7 +176,7 @@ spinner.start();
 // spinner.stop();
 ```
 
-### Workflow Logging
+## 🔀 Workflow Logging
 
 ```javascript
 // Create a structured workflow logger
@@ -179,7 +197,7 @@ workflow
 // Workflows are great for organized logging of multi-step processes
 ```
 
-## Advanced Usage
+## 🧰 Advanced Usage
 
 ### Creating Multiple Loggers
 
@@ -217,7 +235,7 @@ console.log(`${errorText} Something went wrong with the process`);
 const prompt = logger.formatPrompt('Enter your name: ');
 ```
 
-## API Reference
+## 📚 API Reference
 
 ### ColorizeLogger Class
 
@@ -251,91 +269,49 @@ Options:
 | `createProgressBar(total, [options])` | Create a progress bar |
 | `createSpinner(text, [options])` | Create a spinner |
 
-### ProgressBar Class
+## 🏆 Why Choose @open-utils/cli-colorize
 
-#### Methods
+### Comparison with Alternatives
 
-| Method | Description |
-|--------|-------------|
-| `update(value, [text])` | Update progress bar value and optional text |
-| `complete([text])` | Complete the progress bar with optional text |
+| Feature | @open-utils/cli-colorize | chalk | colors.js | kleur |
+|---------|--------------------------|-------|-----------|-------|
+| Method Chaining | ✅ | ✅ | ✅ | ✅ |
+| Themes | ✅ | ❌ | ❌ | ❌ |
+| Progress Bars | ✅ | ❌ | ❌ | ❌ |
+| Spinners | ✅ | ❌ | ❌ | ❌ |
+| Tables | ✅ | ❌ | ❌ | ❌ |
+| Workflows | ✅ | ❌ | ❌ | ❌ |
+| TypeScript | ✅ | ✅ | ❌ | ✅ |
+| ESM Support | ✅ | ✅ | ✅ | ✅ |
+| Zero Dependencies | ✅ | ✅ | ✅ | ✅ |
 
-### Spinner Class
+### Use Cases
 
-#### Methods
+- **CLI Applications**: Enhance user experience with colored output and interactive elements
+- **Logging Systems**: Create semantic, easy-to-read logs
+- **DevOps Tools**: Build monitoring and deployment tools with clear visual feedback
+- **Task Runners**: Show progress and status of running tasks
+- **Interactive CLIs**: Create engaging command-line interfaces with styled prompts and responses
 
-| Method | Description |
-|--------|-------------|
-| `start()` | Start the spinner animation |
-| `update(text)` | Update the spinner text |
-| `success([text])` | Stop spinner and show success message |
-| `error([text])` | Stop spinner and show error message |
-| `stop([text])` | Stop spinner with optional text |
+## 👥 Contributing
 
-### Workflow API
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-#### Methods
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-| Method | Description |
-|--------|-------------|
-| `start(message)` | Start a workflow with a title |
-| `step(message)` | Log a numbered step |
-| `success(message)` | Log a success message |
-| `error(message)` | Log an error message |
-| `warning(message)` | Log a warning message |
-| `end(message)` | End the workflow with a message |
+## 📄 License
 
-## TypeScript Support
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-This library includes full TypeScript definitions:
+## 📦 Related Projects
 
-```typescript
-import { ColorizeLogger, logger, createWorkflow, Theme } from '@open-utils/cli-colorize';
+- [@open-utils/cli-input](https://github.com/saadyehahmmad/open-utils-cli-input) - Interactive command-line input utilities
+- [@open-utils/cli-menu](https://github.com/saadyehahmmad/open-utils-cli-menu) - Create interactive command-line menus
 
-// Custom theme with type checking
-const theme: Theme = {
-  success: { color: 'green', style: 'bright' },
-  error: { color: 'red', style: 'bright' },
-  warning: { color: 'yellow', style: 'bright' },
-  info: { color: 'blue', style: 'bright' },
-  debug: { color: 'magenta', style: 'dim' },
-  prompt: { color: 'white', style: 'underscore' }
-};
+---
 
-// Create typed logger
-const myLogger = new ColorizeLogger({ theme });
-```
-
-## Example Project - User Information Collection CLI
-
-This repository includes a professional sample application demonstrating the usage of the ColorizeLogger library in a real-world scenario.
-
-### Running the Example
-
-Basic usage:
-```bash
-node examples/server.js
-```
-
-With a specific theme:
-```bash
-THEME=vibrant node examples/server.js
-```
-
-With debug information:
-```bash
-DEBUG=true node examples/server.js
-```
-
-With both options:
-```bash
-THEME=dark DEBUG=true node examples/server.js
-```
-
-## License
-
-MIT
-
-## Contributing
-
-Contributions welcome! Please feel free to submit a Pull Request. 
+<p align="center">Made with ❤️ by <a href="https://github.com/saadyehahmmad">Ahmad Sadieh</a></p> 
