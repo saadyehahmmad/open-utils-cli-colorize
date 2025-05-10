@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@open-utils/cli-colorize - The Ultimate Terminal Styling Library for Node.js</title>
+    <meta name="description" content="A powerful and customizable library for terminal colors, progress bars, spinners, and styled tables in Node.js CLI applications.">
+    <meta name="keywords" content="nodejs, terminal, cli, ansi, colors, colorize, styling, progress-bar, spinner, console, cli-tools">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="@open-utils/cli-colorize">
+    <meta property="og:description" content="A powerful and customizable library for terminal colors, progress bars, spinners, and styled tables in Node.js CLI applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saadyehahmmad.github.io/open-utils-cli-colorize/">
+    <meta property="og:image" content="https://saadyehahmmad.github.io/open-utils-cli-colorize/assets/preview.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@open-utils/cli-colorize">
+    <meta name="twitter:description" content="A powerful and customizable library for terminal colors, progress bars, spinners, and styled tables in Node.js CLI applications.">
+    <meta name="twitter:image" content="https://saadyehahmmad.github.io/open-utils-cli-colorize/assets/preview.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://saadyehahmmad.github.io/open-utils-cli-colorize/">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/favicon.ico">
+    
+    <style>
+        :root {
+            --primary-color: #4a7bab;
+            --secondary-color: #2e5984;
+            --accent-color: #3cbc8d;
+            --text-color: #333;
+            --light-text: #777;
+            --very-light-bg: #f9f9f9;
+            --light-bg: #f1f1f1;
+            --border-color: #ddd;
+            --code-bg: #282c34;
+            --code-text: #abb2bf;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--very-light-bg);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2fa67a;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-heading h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .section-heading p {
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--very-light-bg);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .feature-card p {
+            color: var(--light-text);
+        }
+        
+        .code-example {
+            padding: 80px 0;
+            background-color: var(--very-light-bg);
+        }
+        
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 25px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        code {
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .installation {
+            padding: 80px 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .installation pre {
+            display: inline-block;
+            text-align: left;
+            min-width: 300px;
+        }
+        
+        .faq {
+            padding: 80px 0;
+            background-color: var(--very-light-bg);
+        }
+        
+        .faq-items {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:hover {
+            background-color: var(--light-bg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--light-text);
+        }
+        
+        footer {
+            background-color: var(--code-bg);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #abb2bf;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #abb2bf;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 10px 20px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "@open-utils/cli-colorize",
+      "description": "A powerful and customizable library for terminal colors, progress bars, spinners, and styled tables in Node.js CLI applications.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Node.js",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Sadieh",
+        "url": "https://github.com/saadyehahmmad"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">@open-utils/<span>cli-colorize</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="https://github.com/saadyehahmmad/open-utils-cli-colorize">GitHub</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Beautiful Terminal Output for Node.js CLI Applications</h1>
+            <p>Add colors, progress bars, spinners, and styled tables to your CLI applications with an easy-to-use API and zero dependencies.</p>
+            
+            <div class="buttons">
+                <a href="#installation" class="btn btn-primary">Get Started</a>
+                <a href="https://github.com/saadyehahmmad/open-utils-cli-colorize" class="btn btn-secondary">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Features That Enhance Your CLI</h2>
+                <p>Everything you need to create beautiful and informative command-line interfaces</p>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Theme Support</h3>
+                    <p>Multiple built-in themes with easy customization to match your application style.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Progress Bars</h3>
+                    <p>Visual indicators for long-running operations with customizable appearance.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Spinners</h3>
+                    <p>Animated spinners with customizable frames and styles for async operations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Semantic Logging</h3>
+                    <p>Express intent with semantic methods like success, error, warning, and info.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Enhanced Tables</h3>
+                    <p>Display data in well-formatted tables with styled headers for better readability.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔀</div>
+                    <h3>Workflow Logging</h3>
+                    <p>Structured logging for complex operations with steps and status reporting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="examples" class="code-example">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Simple and Expressive API</h2>
+                <p>Designed to be intuitive and easy to use while providing powerful capabilities</p>
+            </div>
+            
+            <pre><code>// Import the library
+const { logger } = require('@open-utils/cli-colorize');
+
+// Use semantic logging methods
+logger.success('Operation completed successfully!');
+logger.error('Something went wrong');
+logger.warning('This might be a problem');
+logger.info('Just FYI');
+
+// Create a progress bar
+const progress = logger.createProgressBar(100, {
+  width: 40,
+  completeChar: '█',
+  incompleteChar: '░',
+  style: { color: 'cyan', style: 'bright' }
+});
+
+// Update progress during operations
+progress.update(50, 'Processing data...');
+
+// Create a spinner for async operations
+const spinner = logger.createSpinner('Loading...', {
+  frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'],
+  interval: 80
+});
+
+spinner.start();
+// Later when done:
+spinner.success('Data loaded successfully!');
+
+// Chain methods for compact code
+logger
+  .info('Processing started')
+  .success('Step 1 completed')
+  .success('Step 2 completed')
+  .info('All steps finished');</code></pre>
+        </div>
+    </section>
+    
+    <section id="installation" class="installation">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Installation</h2>
+                <p>Get started in seconds with npm, yarn, or pnpm</p>
+            </div>
+            
+            <pre><code>// With npm
+npm install @open-utils/cli-colorize
+
+// With yarn
+yarn add @open-utils/cli-colorize
+
+// With pnpm
+pnpm add @open-utils/cli-colorize</code></pre>
+        </div>
+    </section>
+    
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about using @open-utils/cli-colorize in your projects</p>
+            </div>
+            
+            <div class="faq-items">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Does it work in all terminals?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        The library uses standard ANSI escape sequences that work in most modern terminals. Colors and styles will automatically be disabled in environments where they aren't supported.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How does it compare to chalk or colors.js?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        While chalk and colors.js focus primarily on colors, @open-utils/cli-colorize provides a complete CLI styling solution including progress bars, spinners, themes, tables, and workflow logging - all with a consistent, easy-to-use API.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I use it with TypeScript?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! The library includes full TypeScript definitions and was built with type safety in mind.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Does it work with ESM and CommonJS?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, the library supports both module systems out of the box. You can use either require() or import syntax depending on your project setup.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Project</h3>
+                    <ul>
+                        <li><a href="https://github.com/saadyehahmmad/open-utils-cli-colorize">GitHub Repository</a></li>
+                        <li><a href="https://www.npmjs.com/package/@open-utils/cli-colorize">NPM Package</a></li>
+                        <li><a href="https://github.com/saadyehahmmad/open-utils-cli-colorize/issues">Issue Tracker</a></li>
+                        <li><a href="https://github.com/saadyehahmmad/open-utils-cli-colorize/blob/main/LICENSE">License</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#examples">Examples</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Related Projects</h3>
+                    <ul>
+                        <li><a href="https://github.com/saadyehahmmad/open-utils-cli-input">@open-utils/cli-input</a></li>
+                        <li><a href="https://github.com/saadyehahmmad/open-utils-cli-menu">@open-utils/cli-menu</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Author</h3>
+                    <ul>
+                        <li><a href="https://github.com/saadyehahmmad">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Ahmad Sadieh. Released under the MIT License.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                answer.style.display = isOpen ? 'none' : 'block';
+                question.querySelector('span').textContent = isOpen ? '+' : '-';
+            });
+        });
+        
+        // Initialize all FAQs as closed
+        document.querySelectorAll('.faq-answer').forEach(answer => {
+            answer.style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

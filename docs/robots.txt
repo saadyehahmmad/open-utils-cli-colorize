@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saadyehahmmad.github.io/open-utils-cli-colorize/sitemap.xml 

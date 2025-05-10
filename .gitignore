@@ -22,9 +22,6 @@ scripts/
 .travis.yml
 .gitlab-ci.yml
 
-# Examples and documentation source
-examples/
-docs/
 
 # Logs
 logs/
